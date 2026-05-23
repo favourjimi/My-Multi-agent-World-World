@@ -8,6 +8,14 @@ A simple Python 3.11+ (standard library only) prototype of a **multi-agent AI wo
 - specialty-based request routing,
 - a background world activity log.
 
+- **MajorAgent**: your main assistant (the one that answers to you).
+- **Guardian wake flow**: simulates a private laptop assistant activation (`unlock` / `wake`).
+- **Planner specialist**: creates day plans and schedules.
+- **Coach specialist**: helps with motivation and getting unstuck.
+- **FocusRegulator specialist**: balances study/work blocks with game/stream time.
+- **CreatorOps specialist**: suggests a simple drum/video content workflow.
+- **LifeAdmin specialist**: drafts admin/helpful logistics responses.
+- **Memory**: stores lightweight conversation history and key/value preferences.
 ## Features
 
 - **Lead + hierarchy**
@@ -24,32 +32,38 @@ A simple Python 3.11+ (standard library only) prototype of a **multi-agent AI wo
 - **World log**
   - The system records background actions so you can check what happened while you were away.
 
+## Requirements
+
+- Python 3.11+
+- Standard library only (no external dependencies)
+
 ## Quick start
 
 ```bash
 python -m multi_agent_world.main
 ```
 
-## CLI commands and examples
+## Example commands
 
-Inside the CLI, try:
+- `unlock`
+- `set guardian Nightwing`
+- `plan my day around 3 priorities`
+- `I am stuck and need motivation`
+- `study for 2 hours then play FIFA`
+- `help me turn a drum video into a post`
+- `help me with an appointment email`
+- `remember wake_up_time = 6:30 AM`
 
-- `register name Jarvis`
-- `register name Jarvis` (shows name versioning)
-- `list agents`
-- `help with application for product manager role`
-- `open spreadsheet for budget planning`
-- `do research on AI orchestration patterns`
-- `world log`
-- `remember timezone = UTC`
-- `quit`
+## Current limits (intentional for v1)
 
-## Design notes
+- No real voice activation yet (text simulation only).
+- No real social-media upload integration.
+- No real calendar integration.
 
-This project is intentionally simple and local-first:
+## Next upgrades you can add
 
-- Python standard library only
-- No external APIs yet
-- In-memory data storage (resets when app exits)
-
-You can later extend it with persistent storage, real model/tool integrations, and UI.
+1. Integrate real LLM APIs for each specialist.
+2. Add wake-word + local voice interface.
+3. Add local-first encrypted profile storage.
+4. Add calendar/reminder connectors with permission prompts.
+5. Add creator integrations (editing helpers, upload APIs).

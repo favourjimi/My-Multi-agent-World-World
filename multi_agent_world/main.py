@@ -37,7 +37,9 @@ class Memory:
         self.world_logs: List[Message] = []
 
     def add(self, role: str, content: str) -> None:
-        self.messages.append(Message(role=role, content=content, timestamp=datetime.now(timezone.utc)))
+        self.messages.append(
+            Message(role=role, content=content, timestamp=datetime.now(timezone.utc))
+        )
 
     def remember(self, key: str, value: str) -> None:
         self.preferences[key] = value
@@ -130,6 +132,23 @@ class MultiAgentWorld:
         if lower.startswith("remember ") and "=" in user_message:
             key, value = user_message[len("remember ") :].split("=", 1)
             self.memory.remember(key.strip(), value.strip())
+            reply = f"Got it, {self.user_name}. I'll remember {key.strip()} as '{value.strip()}'."
+        elif lower.startswith("set guardian "):
+            guardian = user_message[len("set guardian ") :].strip()
+            self.memory.remember("guardian_name", guardian)
+            reply = f"Guardian identity updated. Wake phrase is now '{guardian}'."
+        elif lower.startswith("unlock") or lower.startswith("wake"):
+            reply = self._wake_sequence()
+        elif "plan" in lower or "schedule" in lower:
+            reply = self.specialists["planner"].respond(user_message, self.memory)
+        elif "stuck" in lower or "motivate" in lower:
+            reply = self.specialists["coach"].respond(user_message, self.memory)
+        elif any(word in lower for word in {"stream", "fifa", "game", "study"}):
+            reply = self.specialists["focus"].respond(user_message, self.memory)
+        elif any(word in lower for word in {"drum", "video", "upload", "capcut"}):
+            reply = self.specialists["creator"].respond(user_message, self.memory)
+        elif "errand" in lower or "email" in lower or "appointment" in lower:
+            reply = self.specialists["life"].respond(user_message, self.memory)
             reply = f"Stored preference: {key.strip()} = {value.strip()}"
         elif lower.startswith("register name "):
             requested = user_message[len("register name ") :].strip()
