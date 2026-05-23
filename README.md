@@ -16,6 +16,7 @@ A simple Python 3.11+ (standard library only) prototype of a **multi-agent AI wo
 - **CreatorOps specialist**: suggests a simple drum/video content workflow.
 - **LifeAdmin specialist**: drafts admin/helpful logistics responses.
 - **Memory**: stores lightweight conversation history and key/value preferences.
+
 ## Features
 
 - **Lead + hierarchy**
@@ -36,6 +37,32 @@ A simple Python 3.11+ (standard library only) prototype of a **multi-agent AI wo
 
 - Python 3.11+
 - Standard library only (no external dependencies)
+
+## Setup (Console / Laptop)
+
+Use these commands directly in your terminal:
+
+```bash
+# 1) Go to the project folder
+cd /workspace/My-Multi-agent-World-World
+
+# 2) Confirm Python 3.11+
+python3 --version
+
+# 3) (Recommended) Create and activate a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 4) Run the app
+python -m multi_agent_world.main
+```
+
+If your system maps Python 3.11+ to `python` already, you can use:
+
+```bash
+python --version
+python -m multi_agent_world.main
+```
 
 ## Quick start
 
