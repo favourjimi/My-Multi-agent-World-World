@@ -87,7 +87,7 @@ python -m multi_agent_world.main
 - No real social-media upload integration.
 - No real calendar integration.
 
-## Next upgrades you can add
+## Next upgrades i will add
 
 1. Integrate real LLM APIs for each specialist.
 2. Add wake-word + local voice interface.
