@@ -2,7 +2,7 @@
 
 A simple Python 3.11+ (standard library only) prototype of a **multi-agent AI world** with:
 
-- a personal **lead AI** (default name: `Jarvis`),
+- a personal **lead AI** (default name: `ORACLE`),
 - a hierarchical team structure,
 - unique AI naming with automatic versioning when names collide,
 - specialty-based request routing,
@@ -25,7 +25,7 @@ A simple Python 3.11+ (standard library only) prototype of a **multi-agent AI wo
 
 - **Global-style AI registry**
   - Every agent gets an ID and profile.
-  - If a name already exists, the next one is versioned (example: `Jarvis 2.0`).
+  - If a name already exists, the next one is versioned (example: `ORACLE 2.0`).
 
 - **Task routing**
   - If your request includes terms like `application`, `spreadsheet`, or `research`, the lead routes to the relevant specialist.

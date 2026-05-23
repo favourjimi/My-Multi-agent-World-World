@@ -96,7 +96,7 @@ class SpecialistAgent:
 class MultiAgentWorld:
     """Hierarchical world where a lead AI routes requests to specialist teams."""
 
-    def __init__(self, owner_name: str = "Founder", lead_name: str = "Jarvis") -> None:
+    def __init__(self, owner_name: str = "Founder", lead_name: str = "ORACLE") -> None:
         self.owner_name = owner_name
         self.memory = Memory()
         self.registry = AgentRegistry()
@@ -210,12 +210,12 @@ class MultiAgentWorld:
 
 
 def run_cli() -> None:
-    world = MultiAgentWorld(owner_name="Founder", lead_name="Jarvis")
+    world = MultiAgentWorld(owner_name="Founder", lead_name="ORACLE")
     print("Multi-Agent World online. Type 'quit' to exit.")
     while True:
         msg = input("You: ").strip()
         if msg.lower() in {"quit", "exit"}:
-            print("Jarvis: Logging off. See you soon.")
+            print(f"{world.lead.name}: Logging off. See you soon.")
             break
         print(world.ask(msg))
 
